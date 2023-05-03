@@ -85,12 +85,11 @@ def compute_metrics_slices(data,model,encoder,lb,process_data,category='educatio
         for value in unique_values:
             sliced_data = data[data[category]==value]
             title = f" the sliced data on {category} with value {value} geenrates:\n"
-            print(title)
             f.write(title)
             # compute the metrics for the category values
             # process sliced data
             X, y, _, _ = process_data(
-                sliced_data, categorical_features=cat_features, label="salary", training=False,encoder=encoder, lb=lb
+                sliced_data, categorical_features=cat_features,label='salary', training=False,encoder=encoder, lb=lb
             )
             # predict sliced ys using model inference
             preds = inference(model,X)
