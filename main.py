@@ -42,8 +42,6 @@ async def data_ingest(data:IneferenceInput):
       #data_array = np.array(data.dict().values())
       # import the model and encoders
       
-
-
     return results
 
 
