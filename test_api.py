@@ -57,6 +57,9 @@ def test_inference_status():
 
 
 def test_inference_lowincome():
+    '''
+    test the api inference for low income
+    '''
     data = {
         'age': 39,
         'workclass':'State-gov',
@@ -81,6 +84,9 @@ def test_inference_lowincome():
 
 
 def test_inference_highincome():
+    '''
+    test the api inference for high income 
+    '''
     data = {
         'age': 31,
         'workclass':'Private',
