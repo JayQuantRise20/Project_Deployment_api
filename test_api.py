@@ -48,7 +48,6 @@ def test_inference_data():
         'native-country':'United-States',
     }
     df = pd.DataFrame(data,index = [0])
-    print('data for inference' , df.shape)
 
     # import the model,lb and encoder 
     model = load('model/random_forest.joblib')
@@ -69,14 +68,14 @@ def test_inference_data():
     X,_,_,_ = process_data(df,categorical_features=cat_features,training=False,encoder=encoder, lb=lb)
 
 
-    predected_salary = inference(model,X)
+    predected_salary = lb.inverse_transform(inference(model,X))
     result = {'inference_result':predected_salary}
 
-    print('predcited salary' , predected_salary)
+    r = client.post("/data",json.dumps(data))
 
-    r = client.post("/data",data=json.dumps(data))
+    print('r ',r.json())
 
-    assert predected_salary
+    assert r.status_code==200
 
 
 
