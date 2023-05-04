@@ -6,6 +6,7 @@ from joblib import load
 from main import app
 from starter.ml.data import process_data
 from starter.ml.model import inference
+import requests
 
 client = TestClient(app)
 
@@ -101,5 +102,6 @@ def test_inference_highincome():
     r = client.post("/predict",json.dumps(data))
 
     assert  r.json()['inference_result']==' >50K'
+
 
 

@@ -11,6 +11,8 @@ from starter.ml.data import process_data
 
 from starter.ml.data import process_data
 from starter.ml.model import inference
+import requests
+import os
 
 
 app = FastAPI()
@@ -30,6 +32,10 @@ class IneferenceInput(BaseModel):
     capital_loss:int = Field(example=0,alias='capital-loss')
     hours_per_week:int = Field(example=40,alias='hours-per-week')
     native_country:str = Field(example='United-States',alias='native-country')
+
+class Result(BaseModel):
+     inference_result:str
+     
     
 
 @app.get('/')
@@ -39,8 +45,7 @@ def greeting():
 
 @app.post('/predict')
 async def data_ingest(data:IneferenceInput):
-      # convert data into numpy array as input for prediction
-      #data_array = np.array(data.dict().values())
+      
       # import the model and encoders
       data_dict = {w.replace('_','-'):i for w,i in data.dict().items()}
       
@@ -72,6 +77,12 @@ async def data_ingest(data:IneferenceInput):
       result = {'inference_result':predected_salary[0]}
 
       return result
+
+
+
+     
+     
+
 
 
 
