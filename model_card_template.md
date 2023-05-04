@@ -7,7 +7,7 @@ The model is simple RrandomForestClassifier trained on census data. It is not fi
 updating the parameters can increase  perofmance of the model. 
 
 ## Intended Use
-It is used too predict the salary of the population and categorize them based 
+It is used to predict the salary of the population and categorize them based 
 on training data and labels for salary categories. 
 ## Training Data
 the data is split on training and test with 80% and 20% of the original data. It contains categorical and numerical columns 
@@ -18,6 +18,12 @@ Evaluation data is 20% of the original data.
 
 ## Metrics
 The model is evaluated based on precision,recall and fbeta scores using scikit-learn metrics. 
+
+the results for test data:
+
+- precision: 0.729829
+- recall: 0.626031
+- fbeta score : 0.673957
 
 ## Ethical Considerations
 This data is population data containing private data of the individuals. There is a risk of exposing data 

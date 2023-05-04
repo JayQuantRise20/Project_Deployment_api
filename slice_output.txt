@@ -1,0 +1,32 @@
+ the sliced data on education with value  Bachelors geenrates:
+Precision: 0.9486486486486486 , Recall: 0.9482215218370104 , Fbeta: 0.9484350371537942
+ the sliced data on education with value  HS-grad geenrates:
+Precision: 0.9357506361323156 , Recall: 0.8782089552238806 , Fbeta: 0.9060671388974438
+ the sliced data on education with value  11th geenrates:
+Precision: 1.0 , Recall: 0.8333333333333334 , Fbeta: 0.9090909090909091
+ the sliced data on education with value  Masters geenrates:
+Precision: 0.9646569646569647 , Recall: 0.9676746611053181 , Fbeta: 0.9661634565330557
+ the sliced data on education with value  9th geenrates:
+Precision: 1.0 , Recall: 0.7407407407407407 , Fbeta: 0.851063829787234
+ the sliced data on education with value  Some-college geenrates:
+Precision: 0.9532428355957768 , Recall: 0.9113193943763518 , Fbeta: 0.9318098046443052
+ the sliced data on education with value  Assoc-acdm geenrates:
+Precision: 0.9631147540983607 , Recall: 0.8867924528301887 , Fbeta: 0.9233791748526523
+ the sliced data on education with value  Assoc-voc geenrates:
+Precision: 0.9350282485875706 , Recall: 0.9168975069252078 , Fbeta: 0.9258741258741259
+ the sliced data on education with value  7th-8th geenrates:
+Precision: 0.9736842105263158 , Recall: 0.925 , Fbeta: 0.9487179487179489
+ the sliced data on education with value  Doctorate geenrates:
+Precision: 0.9612903225806452 , Recall: 0.9738562091503268 , Fbeta: 0.9675324675324675
+ the sliced data on education with value  Prof-school geenrates:
+Precision: 0.9881235154394299 , Recall: 0.983451536643026 , Fbeta: 0.9857819905213271
+ the sliced data on education with value  5th-6th geenrates:
+Precision: 1.0 , Recall: 0.875 , Fbeta: 0.9333333333333333
+ the sliced data on education with value  10th geenrates:
+Precision: 0.9259259259259259 , Recall: 0.8064516129032258 , Fbeta: 0.8620689655172414
+ the sliced data on education with value  1st-4th geenrates:
+Precision: 1.0 , Recall: 0.8333333333333334 , Fbeta: 0.9090909090909091
+ the sliced data on education with value  Preschool geenrates:
+Precision: 0.0 , Recall: 0.0 , Fbeta: 0.0
+ the sliced data on education with value  12th geenrates:
+Precision: 1.0 , Recall: 0.8181818181818182 , Fbeta: 0.9

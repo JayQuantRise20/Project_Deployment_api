@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 # Add the necessary imports for the starter code.
-from ml.model import train_model,compute_metrics_slices
+from ml.model import train_model,compute_metrics_slices,inference,compute_model_metrics
 from ml.data import process_data
 
 
@@ -29,12 +29,21 @@ X_train, y_train, encoder, lb = process_data(
 )
 
 # Proces the test data with the process_data function.
-X_test,_,_,_ = process_data(test,categorical_features=cat_features,label = 'salary',training=False,encoder=encoder, lb=lb)
+X_test,y_test,_,_ = process_data(test,categorical_features=cat_features,label = 'salary',training=False,encoder=encoder, lb=lb)
 # Train and save a model.
 model = train_model(X_train,y_train)
 
+
+# get the metrics for test results and save them as png file
+
+preds = inference(model,X_test)
+print('\n')
+precision, recall, fbeta = compute_model_metrics(y_test,preds)
+print('test results metrics: ')
+print(f'precision: {precision}\n recall:{recall}\n fbeta:{fbeta}\n ')
+
+
 # evalue the model on data slices (here education) and print in slice_output.txt
-encoder = encoder = load('model/encoder.joblib')
 compute_metrics_slices(data,model,encoder,lb,process_data)
 
 # save the model
