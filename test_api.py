@@ -103,8 +103,3 @@ def test_inference_highincome():
     assert  r.json()['inference_result']==' >50K'
 
 
-
-
-
-
-
