@@ -44,7 +44,6 @@ async def predict(item_id:int, data: IneferenceInput):
          train, categorical_features=cat_features, label="salary", training=True
       )
 
-
     return results
 
 
