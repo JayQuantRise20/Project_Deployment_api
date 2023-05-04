@@ -13,7 +13,6 @@ from starter.ml.data import process_data
 from starter.ml.model import inference
 
 
-
 app = FastAPI()
 
 class IneferenceInput(BaseModel):
@@ -32,28 +31,28 @@ class IneferenceInput(BaseModel):
     hours_per_week:int = Field(example=40,alias='hours-per-week')
     native_country:str = Field(example='United-States',alias='native-country')
     
-    
+
 @app.get('/')
 def greeting():
     
     return {'Greeting':'Welcome to the model deploymnet using Fast API'}
 
-
-@app.post('/data')
+@app.post('/predict')
 async def data_ingest(data:IneferenceInput):
       # convert data into numpy array as input for prediction
       #data_array = np.array(data.dict().values())
       # import the model and encoders
-      data_dict = data.dict()
-      print('data dict' , data_dict['marital-status'])
+      data_dict = {w.replace('_','-'):i for w,i in data.dict().items()}
+      
+      # convert the data to df to use ias input for processing 
       df = pd.DataFrame(data_dict,index = [0])
-      print('df',df)
 
       # import the model,lb and encoder 
       model = load('model/random_forest.joblib')
       encoder = load('model/encoder.joblib')
       lb = load('model/lb.joblib')
-
+      
+      # categorical features 
       cat_features = [
         "workclass",
         "education",
@@ -64,12 +63,13 @@ async def data_ingest(data:IneferenceInput):
         "sex",
         "native-country",
         ]
-
+      # process the data
       X,_,_,_ = process_data(df,categorical_features=cat_features,training=False,encoder=encoder, lb=lb)
-
+      
+      # predict the salary 
       predected_salary = lb.inverse_transform(inference(model,X))
-      result = {'inference_result':predected_salary}
-      print(resut)
+      # save the results in dictionary 
+      result = {'inference_result':predected_salary[0]}
 
       return result
 
